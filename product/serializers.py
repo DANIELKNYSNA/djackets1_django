@@ -14,3 +14,15 @@ class ProductSerializer(serializers.ModelSerializer):
       "get_image",
       "get_thumbnail",
     )
+
+class CategorySerializer(serializers.ModelSerializer):
+  products = ProductSerializer(many=True)
+  class Meta:
+    model: Category = Category
+    fields = (
+      "name",
+      "id",
+      "products",
+      "get_absolute_url",
+
+    )
